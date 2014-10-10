@@ -1,0 +1,6 @@
+CREATE TABLE customers (id      INTEGER PRIMARY KEY,
+				   name        VARCHAR(50),
+                   address        VARCHAR(100),
+                   age      INTEGER,
+                   accnum     DOUBLE,
+                   timeEnter DATE);
