@@ -1,4 +1,4 @@
 
 all:
-	project.sh
+	./project.sh
 
