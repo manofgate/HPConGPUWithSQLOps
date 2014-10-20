@@ -1,1 +1,5 @@
 project.db
+*.opensdf
+*.sdf
+*.ipch
+*.suo
