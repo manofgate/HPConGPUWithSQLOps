@@ -26,7 +26,7 @@
 	print "insert into customers (id,name,address,city,age,accnum) values ("id",'\''" fname,lname "'\'','\''" address"'\'','\''"city"'\'',23,"accnum");"
 }' us-500.csv > tmp.txt
 	sqlite3 project.db < tmp.txt
-	#rm tmp.txt
+	rm tmp.txt
 	#for line in $filelines ; do
 	#	echo `$line`
 	#done
