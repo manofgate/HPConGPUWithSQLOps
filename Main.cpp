@@ -98,18 +98,18 @@ int main(int argc, char* argv[]) {
    
    timersub(&stopTimeS, &startTimeS, &timeD);
   double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for select all is: %s.%s \n", timeD.tv_sec,timeD.tv_usec);
+  printf("time elasped for select all is: %f.%f \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO, &startTimeO, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for select order by: %s.%s \n", timeD.tv_sec,timeD.tv_usec);
+  printf("time elasped for select order by: %f.%f \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO2, &startTimeO2, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for 2nd select order by: %s.%s \n", timeD.tv_sec,timeD.tv_usec);
+  printf("time elasped for 2nd select order by: %f.%f \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeU, &startTimeU, &timeD);
-  double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for updating is: %s.%s \n", timeD.tv_sec,timeD.tv_usec);
+  timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
+  printf("time elasped for updating is: %f.%f \n", timeD.tv_sec,timeD.tv_usec);
    system("pause");
 }
