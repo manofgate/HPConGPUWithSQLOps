@@ -4,3 +4,4 @@ project.db
 *.ipch
 *.suo
 *.db
+output.txt
