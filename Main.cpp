@@ -8,16 +8,24 @@
 
 using namespace std;
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+
+ static int callback(void *NotUsed, int argc, char **argv, char **azColName){
    int i;
    for(i=0; i<argc; i++){
       printf("%s = %s : ", azColName[i], argv[i] ? argv[i] : "NULL");
    }
    printf("\n");
    return 0;
-}
+ }
 
-int main(int argc, char* argv[]) {
+ int main(int argc, char* argv[]) {
+     FILE *outfile;
+     outfile = fopen("output.txt", "w");
+     if(outfile == NULL){
+         printf("Unable to open a file.");
+     }
+     
+     for(int i=0; i<100;i++){
 
 	struct timeval sTime;
 	struct timezone tzz;
@@ -38,7 +46,7 @@ int main(int argc, char* argv[]) {
 	int result = sqlite3_open("project.db", &db);
 	if(result){
 		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-}else{
+ }else{
 	fprintf(stderr, "Opened database successfully\n");
    }
 	const char* data = "Callback function called";
@@ -95,21 +103,23 @@ int main(int argc, char* argv[]) {
 
 
    sqlite3_close(db);
-   
+  
    timersub(&stopTimeS, &startTimeS, &timeD);
   double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for select all is: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for select all is:             %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO, &startTimeO, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for select order by: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for select order by:           %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO2, &startTimeO2, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for 2nd select order by: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for 2nd select order by:       %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeU, &startTimeU, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  printf("time elasped for updating is: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile,"time elasped for updating is:                %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+}
+   fclose(outfile);
    system("pause");
 }
