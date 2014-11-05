@@ -106,19 +106,19 @@ using namespace std;
   
    timersub(&stopTimeS, &startTimeS, &timeD);
   double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  fprintf(outfile, "time elasped for select all is: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for select all is:             %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO, &startTimeO, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  fprintf(outfile, "time elasped for select order by: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for select order by:           %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeO2, &startTimeO2, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  fprintf(outfile, "time elasped for 2nd select order by: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile, "time elasped for 2nd select order by:       %d.%d \n", timeD.tv_sec,timeD.tv_usec);
   
   timersub(&stopTimeU, &startTimeU, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  fprintf(outfile,"time elasped for updating is: %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  fprintf(outfile,"time elasped for updating is:                %d.%d \n", timeD.tv_sec,timeD.tv_usec);
 }
    fclose(outfile);
    system("pause");
