@@ -25,7 +25,7 @@ using namespace std;
          printf("Unable to open a file.");
      }
      
-     for(int i=0; i<100;i++){
+     for(int i=0; i<50;i++){
 
 	struct timeval sTime;
 	struct timezone tzz;

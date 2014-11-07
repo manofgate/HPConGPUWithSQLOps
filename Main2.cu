@@ -20,12 +20,12 @@ using namespace std;
 
  int main(int argc, char* argv[]) {
      FILE *outfile;
-     outfile = fopen("output.txt", "w");
+     outfile = fopen("output2.txt", "w");
      if(outfile == NULL){
          printf("Unable to open a file.");
      }
      
-     for(int i=0; i<100;i++){
+     for(int i=0; i<50;i++){
 
 	struct timeval sTime;
 	struct timezone tzz;
