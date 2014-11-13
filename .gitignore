@@ -5,3 +5,4 @@ project.db
 *.suo
 *.db
 output.txt
+*.o
