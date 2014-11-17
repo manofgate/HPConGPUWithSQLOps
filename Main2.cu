@@ -25,15 +25,17 @@ using namespace std;
          printf("Unable to open a file.");
      }
      
-     for(int i=0; i<50;i++){
+     for(int i=0; i<5;i++){
 
 	struct timeval sTime;
 	struct timezone tzz;
 	
-    struct timeval startTimeS;
+    //struct timeval startTimeS;
+    struct timespec startTimeS ;
     struct timeval timeD;
     
-	struct timeval stopTimeS;
+	//struct timeval stopTimeS;
+	struct timespec stopTimeS;
 	struct timeval stopTimeO;
 	struct timeval stopTimeO2;
 	struct timeval stopTimeU;
@@ -53,9 +55,11 @@ using namespace std;
 	string sql = "select * from customers;"; 
 	zErrMsg = 0;
 	/* Execute select basic  statement */
-	gettimeofday(&startTimeS, &tzz);
+   clock_gettime(CLOCK_MONOTONIC, &startTimeS);
+	//gettimeofday(&startTimeS, &tzz);
    result = sqlite3_exec(db, sql.c_str(), callback, (void*)data, &zErrMsg);
-   gettimeofday(&stopTimeS, &tzz);
+   clock_gettime(CLOCK_MONOTONIC, &stopTimeS);
+	//gettimeofday(&stopTimeS, &tzz);
     if( result != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
@@ -104,10 +108,11 @@ using namespace std;
 
    sqlite3_close(db);
   
-   timersub(&stopTimeS, &startTimeS, &timeD);
-  double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
-  fprintf(outfile, "time elasped for select all is:             %d.%d \n", timeD.tv_sec,timeD.tv_usec);
-  
+   //timersub(&stopTimeS, &startTimeS, &timeD);
+  //double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
+   double timeElasp = (stopTimeS.tv_sec - startTimeS.tv_sec) + 1e-9*(stopTimeS.tv_nsec - startTimeS.tv_nsec);  
+fprintf(outfile, "time elasped for select all is:             %d \n", timeElasp);
+ fprintf(outfile, "time elasped nano is for select all is:             %d \n",stopTimeS.tv_nsec -startTimeS.tv_nsec); 
   timersub(&stopTimeO, &startTimeO, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
   fprintf(outfile, "time elasped for select order by:           %d.%d \n", timeD.tv_sec,timeD.tv_usec);
@@ -121,5 +126,6 @@ using namespace std;
   fprintf(outfile,"time elasped for updating is:                %d.%d \n", timeD.tv_sec,timeD.tv_usec);
 }
    fclose(outfile);
-   system("pause");
+   //printf("%d here", TEST);
+	system("pause");
 }
