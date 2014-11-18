@@ -111,8 +111,8 @@ using namespace std;
    //timersub(&stopTimeS, &startTimeS, &timeD);
   //double timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
    double timeElasp = (stopTimeS.tv_sec - startTimeS.tv_sec) + 1e-9*(stopTimeS.tv_nsec - startTimeS.tv_nsec);  
-fprintf(outfile, "time elasped for select all is:             %d \n", timeElasp);
- fprintf(outfile, "time elasped nano is for select all is:             %d \n",stopTimeS.tv_nsec -startTimeS.tv_nsec); 
+fprintf(outfile, "time elasped for select all is:             %f \n", timeElasp);
+ 
   timersub(&stopTimeO, &startTimeO, &timeD);
   timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
   fprintf(outfile, "time elasped for select order by:           %d.%d \n", timeD.tv_sec,timeD.tv_usec);
