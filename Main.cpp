@@ -33,13 +33,13 @@ using namespace std;
     struct timeval startTimeS;
     struct timeval timeD;
     
-	struct timeval stopTimeS;
-	struct timeval stopTimeO;
-	struct timeval stopTimeO2;
-	struct timeval stopTimeU;
-	struct timeval startTimeO;
-	struct timeval startTimeO2;
-	struct timeval startTimeU;
+	struct timespec stopTimeS;
+	struct timespec stopTimeO;
+	struct timespec stopTimeO2;
+	struct timespec stopTimeU;
+	struct timespec startTimeO;
+	struct timespec startTimeO2;
+	struct timespec startTimeU;
 	sqlite3 *db;
 	char *zErrMsg = 0;
 
@@ -53,47 +53,55 @@ using namespace std;
 	string sql = "select * from customers;"; 
 	zErrMsg = 0;
 	/* Execute select basic  statement */
-	gettimeofday(&startTimeS, &tzz);
+        clock_gettime(CLOCK_MONOTONIC, &startTimeS);
+	//gettimeofday(&startTimeS, &tzz);
    result = sqlite3_exec(db, sql.c_str(), callback, (void*)data, &zErrMsg);
-   gettimeofday(&stopTimeS, &tzz);
+    clock_gettime(CLOCK_MONOTONIC, &stopTimeS);
+
+    //gettimeofday(&stopTimeS, &tzz);
     if( result != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
    }else{
       fprintf(stdout, "Operation 1 done successfully\n");
    }
-	
-	gettimeofday(&startTimeO, &tzz);
+	clock_gettime(CLOCK_MONOTONIC, &startTimeO);
+	//gettimeofday(&startTimeO, &tzz);
 	sql = "select * from customers ORDER BY address;"; 
 	zErrMsg = 0;
 	/* Execute select order by statement */
    result = sqlite3_exec(db, sql.c_str(), callback, (void*)data, &zErrMsg);
-   gettimeofday(&stopTimeO, &tzz);
+   clock_gettime(CLOCK_MONOTONIC, &stopTimeO);
+   //gettimeofday(&stopTimeO, &tzz);
     if( result != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
    }else{
       fprintf(stdout, "Operation 2 done successfully\n");
    }
-	gettimeofday(&startTimeO2, &tzz);
+        clock_gettime(CLOCK_MONOTONIC, &startTimeO2);
+	//gettimeofday(&startTimeO2, &tzz);
 	sql = "select * from customers ORDER BY accnum;"; 
 	zErrMsg = 0;
 	/* Execute select group by statement */
    result = sqlite3_exec(db, sql.c_str(), callback, (void*)data, &zErrMsg);
-   gettimeofday(&stopTimeO2, &tzz);
+   clock_gettime(CLOCK_MONOTONIC, &stopTimeO2);
+  // gettimeofday(&stopTimeO2, &tzz);
     if( result != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
    }else{
       fprintf(stdout, "Operation  3 done successfully\n");
    }
-	gettimeofday(&startTimeU, &tzz);
+        clock_gettime(CLOCK_MONOTONIC, &startTimeU);
+	//gettimeofday(&startTimeU, &tzz);
 	//sql = "UPDATE customers SET age=26 WHERE age=23;"; 
 	sql = "UPDATE customers SET age=23 WHERE age=26;"; 
 	zErrMsg = 0;
 	/* Execute update  statement */
    result = sqlite3_exec(db, sql.c_str(), callback, (void*)data, &zErrMsg);
-   gettimeofday(&stopTimeU, &tzz);
+    clock_gettime(CLOCK_MONOTONIC, &stopTimeU);
+   //gettimeofday(&stopTimeU, &tzz);
     if( result != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
