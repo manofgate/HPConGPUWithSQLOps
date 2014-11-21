@@ -1,20 +1,20 @@
-time elasped for select all is:             4.400608 
-time elasped for select order by:           5.561992 
-time elasped for 2nd select order by:       5.882166 
-time elasped for updating is:                0.54118 
-time elasped for select all is:             5.263716 
-time elasped for select order by:           4.868782 
-time elasped for 2nd select order by:       5.331795 
-time elasped for updating is:                0.53975 
-time elasped for select all is:             5.097462 
-time elasped for select order by:           5.140574 
-time elasped for 2nd select order by:       5.69608 
-time elasped for updating is:                0.53936 
-time elasped for select all is:             5.072591 
-time elasped for select order by:           5.251812 
-time elasped for 2nd select order by:       4.985750 
-time elasped for updating is:                0.53894 
-time elasped for select all is:             4.822322 
-time elasped for select order by:           4.807942 
-time elasped for 2nd select order by:       5.237738 
-time elasped for updating is:                0.53802 
+time elasped for select all is:             4.624353 
+time elasped for select order by:           4.836581 
+time elasped for 2nd select order by:       4.736117 
+time elasped for updating is:                0.57143 
+time elasped for select all is:             4.594968 
+time elasped for select order by:           4.785598 
+time elasped for 2nd select order by:       4.887595 
+time elasped for updating is:                0.103339 
+time elasped for select all is:             4.235716 
+time elasped for select order by:           4.907213 
+time elasped for 2nd select order by:       5.261073 
+time elasped for updating is:                0.105241 
+time elasped for select all is:             4.337782 
+time elasped for select order by:           5.404566 
+time elasped for 2nd select order by:       4.790673 
+time elasped for updating is:                0.53916 
+time elasped for select all is:             4.655695 
+time elasped for select order by:           4.515533 
+time elasped for 2nd select order by:       4.984781 
+time elasped for updating is:                0.54075 
