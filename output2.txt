@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+=======
+time elasped for select all is:             1.709876 
+time elasped for select order by:           0.823099 
+time elasped for 2nd select order by:       0.803208 
+time elasped for updating is:                0.048689 
+time elasped for select all is:             0.409345 
+time elasped for select order by:           0.822876 
+time elasped for 2nd select order by:       0.802076 
+time elasped for updating is:                0.042738 
+time elasped for select all is:             0.408137 
+time elasped for select order by:           0.821115 
+time elasped for 2nd select order by:       0.799522 
+time elasped for updating is:                0.042847 
+time elasped for select all is:             0.408537 
+time elasped for select order by:           0.821896 
+time elasped for 2nd select order by:       0.801406 
+time elasped for updating is:                0.042676 
+time elasped for select all is:             0.406526 
+time elasped for select order by:           0.820386 
+time elasped for 2nd select order by:       0.800105 
+time elasped for updating is:                0.042698 
+>>>>>>> e9bf2e0110856b7a20b3db95be6c4321bf79b485

@@ -6,3 +6,4 @@ project.db
 *.db
 output.txt
 *.o
+*.out
