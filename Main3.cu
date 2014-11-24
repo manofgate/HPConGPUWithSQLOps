@@ -20,7 +20,7 @@ using namespace std;
 
  int main(int argc, char* argv[]) {
      FILE *outfile;
-     outfile = fopen("output2.txt", "w");
+     outfile = fopen("output3.txt", "w");
      if(outfile == NULL){
          printf("Unable to open a file.");
      }
