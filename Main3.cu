@@ -120,18 +120,18 @@ fprintf(outfile, "time elasped for select all is:             %f \n", timeElasp)
  
   //timersub(&stopTimeO, &startTimeO, &timeD);
  // timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
- double timeElasp = (stopTimeO.tv_sec - startTimeO.tv_sec) + 1e-9*(stopTimeO.tv_nsec - startTimeO.tv_nsec);
-  fprintf(outfile, "time elasped for select order by:           %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  timeElasp = (stopTimeO.tv_sec - startTimeO.tv_sec) + 1e-9*(stopTimeO.tv_nsec - startTimeO.tv_nsec);
+  fprintf(outfile, "time elasped for select order by:           %f \n",  timeElasp);
   
   //timersub(&stopTimeO2, &startTimeO2, &timeD);
  // timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
- double timeElasp = (stopTimeO2.tv_sec - startTimeO2.tv_sec) + 1e-9*(stopTimeO2.tv_nsec - startTimeO2.tv_nsec);
-  fprintf(outfile, "time elasped for 2nd select order by:       %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  timeElasp = (stopTimeO2.tv_sec - startTimeO2.tv_sec) + 1e-9*(stopTimeO2.tv_nsec - startTimeO2.tv_nsec);
+  fprintf(outfile, "time elasped for 2nd select order by:       %f \n", timeElasp);
   
  // timersub(&stopTimeU, &startTimeU, &timeD);
  // timeElasp = timeD.tv_sec*1000000.0+(timeD.tv_usec);
- double timeElasp = (stopTimeU.tv_sec - startTimeU.tv_sec) + 1e-9*(stopTimeU.tv_nsec - startTimeU.tv_nsec);
-  fprintf(outfile,"time elasped for updating is:                %d.%d \n", timeD.tv_sec,timeD.tv_usec);
+  timeElasp = (stopTimeU.tv_sec - startTimeU.tv_sec) + 1e-9*(stopTimeU.tv_nsec - startTimeU.tv_nsec);
+  fprintf(outfile,"time elasped for updating is:                %f \n", timeElasp);
 }
    fclose(outfile);
    //printf("%d here", TEST);
