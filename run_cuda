@@ -1,0 +1,23 @@
+#!/bin/bash
+###PBS -l nodes=1:ppn=4
+#PBS -l nodes=1:cuda
+#PBS -l walltime=16:00:00
+#PBS -N gpu001
+#PBS -o cuda_out.$PBS_JOBID
+#PBS -e cuda_err.$PBS_JOBID
+#PBS -r n
+#PBS -V
+##PBS -m abe
+##PBS -M cding@mines.edu
+#-----------------------------------------------------
+cd $PBS_O_WORKDIR
+
+cp ~/NVIDIA_GPU_Computing_SDK/C/bin/linux/release/deviceQuery .
+
+echo
+echo running on: `cat $PBS_NODEFILE`
+
+echo
+echo " gives a report of the devices that were found"
+./deviceQuery < /dev/null
+
